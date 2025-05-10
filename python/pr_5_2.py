@@ -1,29 +1,26 @@
+# This is a faster python algorithm that uses +20 jumps for the number we look for
 import time
 
 start_time = time.perf_counter()
 
 # Code goes here
 
-while 
-    i += 1
 
-print(i)
-# no_list = list(range(1, 11))
-# filtered_list = no_list.copy()
-# for j in reversed(no_list):
-#     for i in no_list:
-#         if j != i and i != 1 and j % i == 0:
-#             print(f"{j} is divisible by {i}")
-#             if j in filtered_list:
-#                 filtered_list.remove(j)
-#             break
-#
-# print(filtered_list)
-# result = 1
-# for i in filtered_list:
-#     result = result * i
-#
-# print(result)
+def main():
+    nbr = 20
+    while True:
+        i = 2
+        while i <= 20:
+            if nbr % i != 0:
+                break
+            i += 1
+        if i == 21:
+            print(nbr)
+            return
+        nbr += 20
+
+
+main()
 end_time = time.perf_counter()
 elapsed_time = end_time - start_time
 print(f"Elapsed time is {elapsed_time:.6f} seconds")
