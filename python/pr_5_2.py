@@ -4,9 +4,7 @@ start_time = time.perf_counter()
 
 # Code goes here
 
-i = 2
-no_list = list(range(1, 20))
-while not all(i % ele == 0 for ele in no_list):
+while 
     i += 1
 
 print(i)
