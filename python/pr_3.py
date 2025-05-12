@@ -1,7 +1,5 @@
 import time
 
-start_time = time.perf_counter()
-
 
 # Code goes here
 def check_prime(n):
@@ -22,20 +20,25 @@ def divide(n, m):
 
 def largest_prime(n):
     divisor_list = []
-    for m in range(2, n):
-        left_over = divide(n, m)
-        if isinstance(left_over, tuple) and len(left_over) == 2:
-            while left_over is not None:
-                divisor_list.append((left_over[1], left_over[0]))
-                n = left_over[0]
-                left_over = divide(n, m)
+    while n % 2 == 0:
+        divisor_list.append(divide(n, 2))
+        n = n // 2
 
-    print(divisor_list)
+    for m in range(3, int(n**0.5) + 1, 2):
+        while n % m == 0:
+            divisor_list.append(divide(n, m))
+            n = n // m
+
+    if n > 2:
+        divisor_list.append((1, n))
+
+    return divisor_list
 
 
-largest_prime(60085147)
+if __name__ == "__main__":
+    start_time = time.perf_counter()
 
-
-end_time = time.perf_counter()
-elapsed_time = end_time - start_time
-print(f"Elapsed time is {elapsed_time:.6f} seconds")
+    print(largest_prime(600851475143))
+    end_time = time.perf_counter()
+    elapsed_time = end_time - start_time
+    print(f"Elapsed time is {elapsed_time:.6f} seconds")
