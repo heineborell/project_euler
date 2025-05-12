@@ -1,3 +1,9 @@
+import time
+
+start_time = time.perf_counter()
+
+
+# Code goes here
 def check_prime(n):
     for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
@@ -27,4 +33,9 @@ def largest_prime(n):
     print(divisor_list)
 
 
-largest_prime(600851475143)
+largest_prime(60085147)
+
+
+end_time = time.perf_counter()
+elapsed_time = end_time - start_time
+print(f"Elapsed time is {elapsed_time:.6f} seconds")
