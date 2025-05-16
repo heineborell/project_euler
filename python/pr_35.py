@@ -8,13 +8,13 @@ start_time = time.perf_counter()
 
 # Code goes here
 def primeList(n):
-    no_list = [True for _ in range(2, n)]
+    no_list = [True] * n
+    no_list[0:2] = [False, False]
     for i in range(2, int(n**0.5) + 1):
-        for j, k in enumerate(no_list):
-            if k:
-                if i != j + 2 and (j + 2) % i == 0:
-                    no_list[j] = False
-    prime_list = [i + 2 for i, j in enumerate(no_list) if j]
+        if no_list[i]:
+            for j in range(i * i, n, i):
+                no_list[j] = False
+    prime_list = [i for i, j in enumerate(no_list) if j]
     return prime_list
 
 
@@ -24,13 +24,15 @@ def stringfyList(prime_list):
 
 def main():
     prime_list = primeList(1000_001)
+    prime_set = set(prime_list)
     str_list = stringfyList(prime_list)
+
     no_of_cyclic = 0
     for s in str_list:
         rotations = [
             int(s[i:] + s[:i]) for i in range(len(s))
         ]  # neat way of circular rotations
-        if set(rotations).issubset(set(prime_list)):
+        if set(rotations).issubset(prime_set):
             no_of_cyclic += 1
 
     print(no_of_cyclic)
