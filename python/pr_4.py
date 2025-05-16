@@ -87,7 +87,7 @@ def FilterPalindromes(n):
             print(palindrome_divisors[j])
 
 
-FilterPalindromes(5)
+FilterPalindromes(3)
 end_time = time.perf_counter()
 elapsed_time = end_time - start_time
 print(f"Elapsed time is {elapsed_time:.6f} seconds")
