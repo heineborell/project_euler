@@ -69,7 +69,7 @@ template <typename T> void printArray(const std::vector<T> &array) {
 int main() {
   Timer t;
   std::cout << std::boolalpha;
-  printArray(largestPrime(600851475143));
+  printArray(largestPrime(600851475143793177));
   // std::cout << largestPrime(600851475143).back().second << '\n';
   std::cout << "Time elapsed: " << t.elapsed() << " seconds\n";
 

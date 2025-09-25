@@ -38,7 +38,7 @@ def largest_prime(n):
 if __name__ == "__main__":
     start_time = time.perf_counter()
 
-    print(largest_prime(6008514751437931749816))
+    print(largest_prime(600851475143))
     end_time = time.perf_counter()
     elapsed_time = end_time - start_time
     print(f"Elapsed time is {elapsed_time:.6f} seconds")
