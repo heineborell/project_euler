@@ -3,7 +3,7 @@ import time
 
 start_time = time.perf_counter()
 no_list = []
-for i in reversed(range(1000)):
+for i in reversed(range(100000)):
     if i % 3 == 0 or i % 5 == 0:
         no_list.append(i)
 

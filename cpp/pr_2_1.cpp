@@ -1,6 +1,6 @@
 #include <chrono> // for std::chrono functions
-#include <cmath>
 #include <iostream>
+#include <vector>
 
 class Timer {
 private:
@@ -18,10 +18,35 @@ public:
   }
 };
 
+int fibonacci(int n) {
+  if (n == 0)
+    return 0;
+  else if (n == 1)
+    return 1;
+  else
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+template <typename T> T evenSum(std::vector<T> &array) {
+  T sum{};
+  for (T number : array)
+    if (number % 2 == 0)
+      sum += number;
+  return sum;
+}
+
 int main() {
   Timer t;
+  int i{0};
+  int result{0};
+  std::vector<int> stack{};
 
-  std::cout << typeid(std::sqrt(4)).name();
+  while (result < 4000000) {
+    result = fibonacci(i);
+    stack.push_back(result);
+    ++i;
+  }
+  std::cout << evenSum(stack) << '\n';
 
   std::cout << "Time elapsed: " << t.elapsed() << " seconds\n";
 

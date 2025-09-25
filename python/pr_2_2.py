@@ -18,7 +18,7 @@ def fibo(n):
 
 i = 0
 fibo_list = []
-while fibo(i) < 4000_000:
+while fibo(i) < 4000_00000:
     fibo_list.append(fibo(i))
     i += 1
 

@@ -1,4 +1,4 @@
-"""Question is to find the circular primes we start with modifying the prime code to the
+"""Question is to find the circular primes. Sowe start with modifying the prime code to the
 https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes version which is way faster than what I originally have"""
 
 import time

@@ -1,6 +1,8 @@
 #include <chrono> // for std::chrono functions
-#include <cmath>
+#include <cstddef>
 #include <iostream>
+#include <ranges>
+#include <vector>
 
 class Timer {
 private:
@@ -18,10 +20,25 @@ public:
   }
 };
 
+template <typename T> T sum(std::vector<T> &array) {
+  T sum{};
+  for (T number : array)
+    sum += number;
+  return sum;
+}
+
 int main() {
   Timer t;
+  std::vector<int> stack{};
+  int range{100000};
+  stack.reserve(static_cast<std::size_t>(range));
+  for (range; range > 0; --range)
+    if (range % 3 == 0 || range % 5 == 0) {
+      stack.push_back(range);
+    }
+  std::cout << sum(stack) << '\n';
 
-  std::cout << typeid(std::sqrt(4)).name();
+  // Code to time goes here
 
   std::cout << "Time elapsed: " << t.elapsed() << " seconds\n";
 
